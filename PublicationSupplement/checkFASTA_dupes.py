@@ -21,7 +21,7 @@ List of standard and non-standard modules used:
 
 Procedure:
 	1. Loading required modules & assigning command line argument.
-    2. Load the reference file into a Pandas dataframe. 
+	2. Load the reference file into a Pandas dataframe. 
 	3. Parse the Pandas dataframe and open the FASTA files with duplications, 
 		to determine whether sequences within the same file with the same FASTA
 		headers also contain identical sequence lines. 
