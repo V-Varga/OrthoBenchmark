@@ -26,7 +26,7 @@ List of standard and non-standard modules used:
 
 Procedure:
 	1. Loading required modules & assigning command line argument.
-    2. Contents of the large reference database are loaded into a Pandas dataframe,
+ 	2. Contents of the large reference database are loaded into a Pandas dataframe,
 		and existing alphanumeric headers are extracted to ensure no repitition.
 	3. Parsing the input FASTA file in order to extract headers and generate
 		random alphanumeric codes to replace them.
