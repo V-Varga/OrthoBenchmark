@@ -20,7 +20,7 @@ List of standard and non-standard modules used:
 
 Procedure:
 	1. Importing modules & assigning command line arguments.
-    2. Processing input file list.
+	2. Processing input file list.
 	3. Subsampling the file name list.
 	4. Writing out results.
 

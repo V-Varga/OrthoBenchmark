@@ -21,7 +21,7 @@ List of standard and non-standard modules used:
 
 Procedure:
 	1. Loading required modules & assigning command line argument.
-    2. Parse the FASTA file and determine the copy number for duplicated sequence
+	2. Parse the FASTA file and determine the copy number for duplicated sequence
 		headers. Write out the sequence headers with information on the copy 
 		number if the sequence header occurs more than once. 
 
