@@ -50,11 +50,15 @@ python og_clust_counts.py input_db
 # the database should be in the structure produced by the ortho_results_parser.py script
 
 # visualizing descriptive statistics
-Rscript visualize_desc_stats.R infile_stats infile_counts dataset_id
+Rscript visualize_desc_stats.R infile_stats infile_counts dataset_id removable_string
 # infile_stats is the results file output by the og_stats_benchmark.py script
 # infile_counts is the cleaned counts file output by the og_clust_counts.py script
 # dataset_id is a dataset identifier to be used in the figure titles 
 # (underscores should be used where the user wishes for spaces)
+# removable_string as a string which should be removed along with everything before
+# in order to allow the column names to be categorizable. The create_ortho_db.py 
+# script will create column headers in the format [PROGRAM_NAME]_[INPUT_BASENAME].
+# Use the [INPUT_BASENAME] for removable_string.
 
 # Anderson-Darling tests
 Rscript clust_size_signif.R infile_counts [col_substring]
