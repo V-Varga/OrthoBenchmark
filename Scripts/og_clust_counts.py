@@ -103,8 +103,8 @@ for column in input_df:
 # Part 4: Clean up dataframe & write out results
 
 # Create cleaned up dataframe without cluster IDs
-# ref: https://stackoverflow.com/questions/19071199/drop-columns-whose-name-contains-a-specific-string-from-pandas-dataframe
-clean_counts_df = counts_df[counts_df.columns.drop(list(counts_df.filter(regex = '_parsed_pivot')))]
+# ref: https://stackoverflow.com/questions/25039626/how-do-i-find-numeric-columns-in-pandas
+clean_counts_df = counts_df.select_dtypes(include='number')
 
 
 # write out results to tab-separated text files

@@ -119,6 +119,8 @@ else:
 				# this will also be used in the OG column name
 				base = os.path.basename(input_db)
 				out_base = os.path.splitext(base)[0]
+				# also remove the _parsed_pivot substring
+				out_base = out_base.replace('_parsed_pivot', '')
 				# switch the column order
 				cols = input_df.columns.tolist()
 				cols = cols[-1:] + cols[:-1]
@@ -137,6 +139,8 @@ else:
 			# this will also be used in the OG column name
 			base = os.path.basename(input_db)
 			out_base = os.path.splitext(base)[0]
+			# also remove the _parsed_pivot substring
+			out_base = out_base.replace('_parsed_pivot', '')
 			# switch the column order
 			cols = input_df.columns.tolist()
 			cols = cols[-1:] + cols[:-1]
