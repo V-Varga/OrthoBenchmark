@@ -21,7 +21,7 @@ The OrthoBenchmark toolbox should be utilized from the command line, ideally in 
 3. Parse orthologous clustering results with a user-modified version of the `ortho_results_parser.py` script. As it stands, this script can be used to parse the results of CD-Hit, Diamond, MMseqs2 or USEARCH. The user should adapt it as needed to the format of the orthologous clustering results output by their programs of interest. Modifications to this file will not be tracked by git, but modifications to the identical `ortho_results_parser__EXAMPLE.py` script will. [^1]
 4. Create an orthology database with the `create_ortho_db.py` script, which consolidates the data from the parsed orthologous clustering results into one large database.
 5. Gather summary statistics from the clustering database with the `og_stats_benchmark.py` and `og_clust_counts.py` scripts.
-6. Visualize descriptive statistics with the `visualize_desc_stats.R` script.
+6. Visualize descriptive statistics with the `visualize_desc_stats.R` script. This script produces barplots, violin plots and boxplots. If the user wishes to produce scatterplots rather than barplots, the `visualize_desc_stats-scatter.R` script is also included.
 7. Test the significance of cluster size differences using the Anderson-Darling test with the `clust_size_signif.R` script.
 8. Perform the cluster membership overlap testing with the `og_membership_test.py` script.
 9. Visualize the results of the cluster membership overlap testing with the `visualize_cluster_overlap.R` script.
