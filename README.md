@@ -18,7 +18,7 @@ The OrthoBenchmark toolbox should be utilized from the command line, ideally in 
 
 1. Run orthologous clustering using desired settings of four programs of interest.
 2. Create a `conda`/`mamba` environment from the `env-orthobenchmark.yml` file located in the `Environment/` directory. All R and Python modules necessary to run the scripts included in this toolbox are included in the file.
-3. Parse orthologous clustering results with a modified version of the `ortho_results_parser.py` script. As it stands, this script can be used to parse the results of CD-Hit, Diamond, MMseqs2 or USEARCH. The user should adapt it as needed to the format of the orthologous clustering results output by their programs of interest. Modifications to this file will not be tracked by git, but modifications to the identical `ortho_results_parser__EXAMPLE.py` script will.
+3. Parse orthologous clustering results with a user-modified version of the `ortho_results_parser.py` script. As it stands, this script can be used to parse the results of CD-Hit, Diamond, MMseqs2 or USEARCH. The user should adapt it as needed to the format of the orthologous clustering results output by their programs of interest. Modifications to this file will not be tracked by git, but modifications to the identical `ortho_results_parser__EXAMPLE.py` script will. [^1]
 4. Create an orthology database with the `create_ortho_db.py` script, which consolidates the data from the parsed orthologous clustering results into one large database.
 5. Gather summary statistics from the clustering database with the `og_stats_benchmark.py` and `og_clust_counts.py` scripts.
 6. Visualize descriptive statistics with the `visualize_desc_stats.R` script.
@@ -74,6 +74,8 @@ Rscript clust_size_signif.R infile_counts [col_substring]
 # in the column headers that the user wishes to perform the test on
 
 ```
+
+[^1]: Note from author, Vi: I apologize for not being able to streamline the parsing step any further. However, since there is not standardized output file structure for orthologous clustering, it simply is not feasible. Results files vary with regard to pivoting, file extensions, delimiters, whether generated cluster are named or numbered (or neither), and more. If you are struggling to parse your specific output file, please reach out, and I will be happy to help!
 
 
 ## Publication & Citation
