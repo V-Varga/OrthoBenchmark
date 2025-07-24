@@ -49,12 +49,6 @@ python og_stats_benchmark.py input_dict [input_dict2 input_dict3 ...] [-NAME out
 python og_clust_counts.py input_db
 # the database should be in the structure produced by the ortho_results_parser.py script
 
-# cluster membership overlap
-python og_membership_test.py [-h] (-a | -c CHECKPOINT_NUM) [-j INPUT_JSON] [-i TEST_IDENTIFIER] [-p MEMBERSHIP_PERCENT] [-o OUT_NAME] [-d INPUT_FILES] [-n PROGRAM_NAMES] [-v]
-# can be run from the beginning with -a
-# or from a checkpoint with -c=NUMBER
-# please see -h for full prgoram documentation
-
 # visualizing descriptive statistics
 Rscript visualize_desc_stats.R infile_stats infile_counts dataset_id
 # infile_stats is the results file output by the og_stats_benchmark.py script
@@ -62,16 +56,22 @@ Rscript visualize_desc_stats.R infile_stats infile_counts dataset_id
 # dataset_id is a dataset identifier to be used in the figure titles 
 # (underscores should be used where the user wishes for spaces)
 
-# visualizing cluster membership overlap
-Rscript visualize_cluster_overlap.R infile_json out_base
-# infile_json is the og_score_dict_[IDENTIFIER].json file produced by the og_membership_test.py script
-# out_base is the intended basename for the output file heatmap plot files
-
 # Anderson-Darling tests
 Rscript clust_size_signif.R infile_counts [col_substring]
 # infile_counts is the cleaned counts file output by the og_clust_counts.py script
 # col_substring is an optional argument specifying a substring that should be contained
 # in the column headers that the user wishes to perform the test on
+
+# cluster membership overlap
+python og_membership_test.py [-h] (-a | -c CHECKPOINT_NUM) [-j INPUT_JSON] [-i TEST_IDENTIFIER] [-p MEMBERSHIP_PERCENT] [-o OUT_NAME] [-d INPUT_FILES] [-n PROGRAM_NAMES] [-v]
+# can be run from the beginning with -a
+# or from a checkpoint with -c=NUMBER
+# please see -h for full prgoram documentation
+
+# visualizing cluster membership overlap
+Rscript visualize_cluster_overlap.R infile_json out_base
+# infile_json is the og_score_dict_[IDENTIFIER].json file produced by the og_membership_test.py script
+# out_base is the intended basename for the output file heatmap plot files
 
 ```
 
