@@ -26,32 +26,52 @@ The OrthoBenchmark toolbox should be utilized from the command line, ideally in 
 8. Perform the cluster membership overlap testing with the `og_membership_test.py` script.
 9. Visualize the results of the cluster membership overlap testing with the `visualize_cluster_overlap.R` script.
 
-All of the above mentioned scripts are located in the `Scripts/` directory. An example workflow is provided below, but please see the scripts themselves for more specific input and usage instructions.
+All of the above mentioned scripts are located in the `Scripts/` directory. Example usage for each script is provided below, but please see the scripts themselves for more specific input and usage instructions.
 
 ```bash
 # parsing program results
-python ../ortho_results_parser.py -i Concat_Pseudomonas_aeruginosa_CopyN_edit_90_200k.clstr -c -o CD-HIT_Pa_90_200k
-python ../ortho_results_parser.py -i PA_diamond_clust_90_200k.txt -d -o Diamond_Pa_90_200k
-python ../ortho_results_parser.py -i Pa_DB_90_200k_clu.tsv -m -o MMseqs2_Pa_90_200k
-python ../ortho_results_parser.py -i Pa_CopyN_edit__clusters_90_200k.uc -u -o USEARCH_Pa_90_200k
+python ortho_results_parser.py [-h] -i INPUT_FILE [-c] [-d] [-m] [-u] [-o OUT_NAME] [-v]
+# where -c, -d, -m & -u specify which orthologous clustering program's results should be parsed
+# CD-HIT, Diamond, MMseqs2 or USEARCH, respectively
+# -o allows the user to specify an output file basename
+
 # database creation
-python ../create_ortho_db.py CD-HIT_Pa_90_200k_parsed_pivot.txt Diamond_Pa_90_200k_parsed_pivot.txt MMseqs2_Pa_90_200k_parsed_pivot.txt USEARCH_Pa_90_200k_parsed_pivot.txt
-cp Orthology_Comparison_DB__24-07-2025--013753.txt Orthology_Comparison_DB_200k__24-07-2025--013753.txt
+python create_ortho_db.py input_db1 [input_db2 input_db3...]
+# note that the number of input databases is not limited
+# the databases should be in the structure produced by the ortho_results_parser.py script
+
 # statistics collection
-python ../og_stats_benchmark.py CD-HIT_Pa_90_200k_parsed.json Diamond_Pa_90_200k_parsed.json MMseqs2_Pa_90_200k_parsed.json USEARCH_Pa_90_200k_parsed.json -NAME Size_200k
+python og_stats_benchmark.py input_dict [input_dict2 input_dict3 ...] [-NAME out_base]
+# note that the number of input databases is not limited
+# the databases should be in the structure produced by the ortho_results_parser.py script
+
 # boxplot data gathering by dataset size
-python ../og_clust_counts.py Orthology_Comparison_DB_200k__24-07-2025--013753.txt
-# created files Ortho_Comparison_Counts__24-07-2025--014037.txt & Ortho_Comparison_CountsClean__24-07-2025--014037.txt
-cp Ortho_Comparison_Counts__24-07-2025--014037.txt Ortho_Comparison_Counts_200k__24-07-2025--014037.txt
-cp Ortho_Comparison_CountsClean__24-07-2025--014037.txt Ortho_Comparison_CountsClean_200k__24-07-2025--014037.txt
-# clustering overlap
-python ../og_membership_test.py -a -i 90 -p 45 -o Pa_90_200k -d CD-HIT_Pa_90_200k_parsed.json,Diamond_Pa_90_200k_parsed.json,MMseqs2_Pa_90_200k_parsed.json,USEARCH_Pa_90_200k_parsed.json -n CDHIT,Diamond,MMseqs2,USEARCH
+python og_clust_counts.py input_db
+# the database should be in the structure produced by the ortho_results_parser.py script
+
+# cluster membership overlap
+python og_membership_test.py [-h] (-a | -c CHECKPOINT_NUM) [-j INPUT_JSON] [-i TEST_IDENTIFIER] [-p MEMBERSHIP_PERCENT] [-o OUT_NAME] [-d INPUT_FILES] [-n PROGRAM_NAMES] [-v]
+# can be run from the beginning with -a
+# or from a checkpoint with -c=NUMBER
+# please see -h for full prgoram documentation
+
 # visualizing descriptive statistics
-Rscript ../visualize_desc_stats.R Size_200k__og_stats.txt Ortho_Comparison_CountsClean_200k__24-07-2025--014037.txt
+Rscript visualize_desc_stats.R infile_stats infile_counts dataset_id
+# infile_stats is the results file output by the og_stats_benchmark.py script
+# infile_counts is the cleaned counts file output by the og_clust_counts.py script
+# dataset_id is a dataset identifier to be used in the figure titles 
+# (underscores should be used where the user wishes for spaces)
+
 # visualizing cluster membership overlap
-Rscript ../../Scripts/visualize_cluster_overlap.R /mnt/c/Users/viragv/Documents/ChalmersG/Clustering/OrthoBenchmark/Manuscript/ParsedResults/ClusterOverlap/Size_200k/Percent_90/og_score_dict.json Comparison_200k_90
-# Anderson-Darling
-Rscript ../clust_size_signif.R Ortho_Comparison_CountsClean_200k__24-07-2025--014037.txt 90
+Rscript visualize_cluster_overlap.R infile_json out_base
+# infile_json is the og_score_dict_[IDENTIFIER].json file produced by the og_membership_test.py script
+# out_base is the intended basename for the output file heatmap plot files
+
+# Anderson-Darling tests
+Rscript clust_size_signif.R infile_counts [col_substring]
+# infile_counts is the cleaned counts file output by the og_clust_counts.py script
+# col_substring is an optional argument specifying a substring that should be contained
+# in the column headers that the user wishes to perform the test on
 
 ```
 
