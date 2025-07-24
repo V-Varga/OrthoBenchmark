@@ -44,7 +44,7 @@
 #       Rscript visualize_cluster_overlap.R infile_json out_base
 #
 #       Where: 
-#         infile_json is the og_score_dict.json file produced by the og_membership_test__v2.py script
+#         infile_json is the og_score_dict.json file produced by the og_membership_test.py script
 #         and
 #         out_base is the intended basename for the output file heatmap plot files
 # 
