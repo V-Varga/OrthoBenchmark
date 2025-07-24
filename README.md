@@ -47,11 +47,11 @@ cp Ortho_Comparison_CountsClean__24-07-2025--014037.txt Ortho_Comparison_CountsC
 # clustering overlap
 python ../og_membership_test.py -a -i 90 -p 45 -o Pa_90_200k -d CD-HIT_Pa_90_200k_parsed.json,Diamond_Pa_90_200k_parsed.json,MMseqs2_Pa_90_200k_parsed.json,USEARCH_Pa_90_200k_parsed.json -n CDHIT,Diamond,MMseqs2,USEARCH
 # visualizing descriptive statistics
-Rscript ../../Scripts/visualize_desc_stats.R Size_200k__og_stats.txt Ortho_Comparison_CountsClean_200k__19-02-2025--142210.txt
+Rscript ../visualize_desc_stats.R Size_200k__og_stats.txt Ortho_Comparison_CountsClean_200k__24-07-2025--014037.txt
 # visualizing cluster membership overlap
 Rscript ../../Scripts/visualize_cluster_overlap.R /mnt/c/Users/viragv/Documents/ChalmersG/Clustering/OrthoBenchmark/Manuscript/ParsedResults/ClusterOverlap/Size_200k/Percent_90/og_score_dict.json Comparison_200k_90
 # Anderson-Darling
-Rscript ../../Scripts/clust_size_signif.R Ortho_Comparison_CountsClean_200k__19-02-2025--142210.txt 90
+Rscript ../clust_size_signif.R Ortho_Comparison_CountsClean_200k__24-07-2025--014037.txt 90
 
 ```
 
