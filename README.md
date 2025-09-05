@@ -2,6 +2,8 @@
 
 ![OrthoBenchmark logo](./img/Logo__OrthoBenchmark.png)
 
+Logo created in BioRender. Varga, V. (2025) https://BioRender.com/vy1s18v
+
 Author: Vi Varga
 
 Last Update Date: 23.07.2025
