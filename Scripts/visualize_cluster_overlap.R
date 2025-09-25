@@ -155,13 +155,24 @@ for(i in 1:nrow(comparison_df)) {
 # ref: https://stackoverflow.com/questions/10686054/outlined-text-with-ggplot2
 plot_heatmap <- ggplot(comparison_df, aes(x = Prog_1, y = Prog_2, fill = Overlap)) +
   geom_raster() +
-  labs(title = "Cluster Membership Overlap",
-       subtitle = "Average percent of overlapping protein members of orthologous clusters predicted by different programs",
-       y = NULL, x = NULL) +
+  labs(
+    title = "Cluster Membership Overlap",
+    subtitle = "Average percent of overlapping protein members of orthologous clusters \npredicted by different programs",
+    y = NULL, x = NULL
+  ) +
   scale_fill_viridis() +
-  geom_shadowtext(aes(label = Percent)) +
-  guides(fill = guide_colourbar(title = "Degree of \nOverlap")) + 
-  theme(panel.grid = element_blank())
+  geom_shadowtext(aes(label = Percent), size = 8) +
+  guides(fill = guide_colourbar(title = "Degree of \nOverlap")) +
+  theme(
+    panel.grid = element_blank(),
+    text = element_text(size = 18),              # base font size
+    axis.text = element_text(size = 14),         # x and y tick labels
+    axis.title = element_text(size = 16),        # axis titles
+    plot.title = element_text(size = 20, face = "bold"),
+    plot.subtitle = element_text(size = 16),
+    legend.title = element_text(size = 14),
+    legend.text = element_text(size = 12)
+  )
 
 
 # Part 5: Print results to file

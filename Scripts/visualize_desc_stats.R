@@ -140,10 +140,10 @@ color_list <- head(color_list, -2)
 
 plot_clustnum <- ggplot(stats_table, aes(x = Program_Name, y = Cluster_Num, fill = Clust_Category)) + 
   geom_bar(position = "dodge", stat = "identity") + 
-  labs(title = paste("Number of Clusters - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & percent identity", 
-       y = "Number of clusters", x = "Clustering program & category", color = "Clustering \nPercent Identity", 
+  labs(title = paste("Number of Clusters - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & category", 
+       y = "Number of clusters", x = "Clustering program & category", color = "Clustering \nCategory", 
        shape = "Clustering \nProgram") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 14), 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
         text = element_text(size = 18)) +
   scale_y_continuous(labels = comma) +
   scale_fill_manual(values=color_list)
@@ -151,10 +151,10 @@ plot_clustnum <- ggplot(stats_table, aes(x = Program_Name, y = Cluster_Num, fill
 # Maximum cluster size
 plot_maxsize <- ggplot(stats_table, aes(x = Program_Name, y = Max_Size, fill = Clust_Category)) + 
   geom_bar(position = "dodge", stat = "identity") + 
-  labs(title = paste("Maximum Cluster Size - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & percent identity", 
-       y = "Maximum cluster size", x = "Clustering program & category", color = "Clustering \nPercent Identity", 
+  labs(title = paste("Maximum Cluster Size - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & category", 
+       y = "Maximum cluster size", x = "Clustering program & category", color = "Clustering \nCategory", 
        shape = "Clustering \nProgram") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 14), 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
         text = element_text(size = 18)) +
   scale_y_continuous(labels = comma) +
   scale_fill_manual(values=color_list)
@@ -162,10 +162,10 @@ plot_maxsize <- ggplot(stats_table, aes(x = Program_Name, y = Max_Size, fill = C
 # Mean cluster size
 plot_mean <- ggplot(stats_table, aes(x = Program_Name, y = Avg_Mean_Size, fill = Clust_Category)) + 
   geom_bar(position = "dodge", stat = "identity") + 
-  labs(title = paste("Mean Cluster Size - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & percent identity", 
-       y = "Mean cluster size", x = "Clustering program & category", color = "Clustering \nPercent Identity", 
+  labs(title = paste("Mean Cluster Size - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & category", 
+       y = "Mean cluster size", x = "Clustering program & category", color = "Clustering \nCategory", 
        shape = "Clustering \nProgram") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 14), 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
         text = element_text(size = 18)) +
   scale_y_continuous(labels = comma) +
   scale_fill_manual(values=color_list)
@@ -173,10 +173,10 @@ plot_mean <- ggplot(stats_table, aes(x = Program_Name, y = Avg_Mean_Size, fill =
 # Median cluster size
 plot_median <- ggplot(stats_table, aes(x = Program_Name, y = Median_Size, fill = Clust_Category)) + 
   geom_bar(position = "dodge", stat = "identity") +  
-  labs(title = paste("Median Cluster Size - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & percent identity", 
-       y = "Median cluster size", x = "Clustering program & category", color = "Clustering \nPercent Identity", 
+  labs(title = paste("Median Cluster Size - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & category", 
+       y = "Median cluster size", x = "Clustering program & category", color = "Clustering \nCategory", 
        shape = "Clustering \nProgram") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 14), 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
         text = element_text(size = 18)) +
   scale_y_continuous(labels = comma) +
   scale_fill_manual(values=color_list)
@@ -184,10 +184,10 @@ plot_median <- ggplot(stats_table, aes(x = Program_Name, y = Median_Size, fill =
 # Mode cluster size
 plot_mode <- ggplot(stats_table, aes(x = Program_Name, y = Mode_Size, fill = Clust_Category)) + 
   geom_bar(position = "dodge", stat = "identity") + 
-  labs(title = paste("Mode Cluster Size - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & percent identity", 
-       y = "Mode cluster size", x = "Clustering program & category", color = "Clustering \nPercent Identity", 
+  labs(title = paste("Mode Cluster Size - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & category", 
+       y = "Mode cluster size", x = "Clustering program & category", color = "Clustering \nCategory", 
        shape = "Clustering \nProgram") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 14), 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
         text = element_text(size = 18)) +
   scale_y_continuous(labels = comma) +
   scale_fill_manual(values=color_list)
@@ -195,10 +195,10 @@ plot_mode <- ggplot(stats_table, aes(x = Program_Name, y = Mode_Size, fill = Clu
 # Standard deviation in cluster size
 plot_stddev <- ggplot(stats_table, aes(x = Program_Name, y = Std_Dev, fill = Clust_Category)) + 
   geom_bar(position = "dodge", stat = "identity") + 
-  labs(title = paste("Standard Deviation in Cluster Size - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & percent identity", 
+  labs(title = paste("Standard Deviation in Cluster Size - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & category", 
        y = "Standard deviation in cluster size", x = "Clustering program & category", 
-       color = "Clustering \nPercent Identity", shape = "Clustering \nProgram") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 14), 
+       color = "Clustering \nCategory", shape = "Clustering \nProgram") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
         text = element_text(size = 18)) +
   scale_y_continuous(labels = comma) +
   scale_fill_manual(values=color_list)
@@ -206,10 +206,10 @@ plot_stddev <- ggplot(stats_table, aes(x = Program_Name, y = Std_Dev, fill = Clu
 # Variance in cluster size
 plot_variance <- ggplot(stats_table, aes(x = Program_Name, y = Variance, fill = Clust_Category)) + 
   geom_bar(position = "dodge", stat = "identity") + 
-  labs(title = paste("Variance in Cluster Size - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & percent identity", 
-       y = "Variance in cluster size", x = "Clustering program & category", color = "Clustering \nPercent Identity", 
+  labs(title = paste("Variance in Cluster Size - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & category", 
+       y = "Variance in cluster size", x = "Clustering program & category", color = "Clustering \nCategory", 
        shape = "Clustering \nProgram") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 14), 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
         text = element_text(size = 18)) +
   scale_y_continuous(labels = comma) +
   scale_fill_manual(values=color_list)
@@ -217,10 +217,10 @@ plot_variance <- ggplot(stats_table, aes(x = Program_Name, y = Variance, fill = 
 # Number of singletons
 plot_singletons <- ggplot(stats_table, aes(x = Program_Name, y = Singleton_Num, fill = Clust_Category)) + 
   geom_bar(position = "dodge", stat = "identity") + 
-  labs(title = paste("Number of Single-Protein Clusters - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & percent identity", 
-       y = "Number of singletons", x = "Clustering program & category", color = "Clustering \nPercent Identity", 
+  labs(title = paste("Number of Single-Protein Clusters - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & category", 
+       y = "Number of singletons", x = "Clustering program & category", color = "Clustering \nCategory", 
        shape = "Clustering \nProgram") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 14), 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
         text = element_text(size = 18)) +
   scale_y_continuous(labels = comma) +
   scale_fill_manual(values=color_list)
@@ -228,10 +228,10 @@ plot_singletons <- ggplot(stats_table, aes(x = Program_Name, y = Singleton_Num, 
 # Ratio of singletons to total cluster number
 plot_singleton_ratio <- ggplot(stats_table, aes(x = Program_Name, y = (Singleton_Num/Cluster_Num), fill = Clust_Category)) + 
   geom_bar(position = "dodge", stat = "identity") + 
-  labs(title = paste("Ratio of Single-Protein Clusters \nto Total Cluster Number - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & percent identity", 
-       y = paste("Ratio of singletons \nto total cluster number"), x = "Clustering program & category", color = "Clustering \nPercent Identity", 
+  labs(title = paste("Ratio of Single-Protein Clusters \nto Total Cluster Number - ", clean_dataset_id, sep=""), subtitle = "Per clustering program & category", 
+       y = paste("Ratio of singletons \nto total cluster number"), x = "Clustering program & category", color = "Clustering \nCategory", 
        shape = "Clustering \nProgram") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 14), 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
         text = element_text(size = 18)) +
   scale_y_continuous(labels = comma) +
   scale_fill_manual(values=color_list)
@@ -308,16 +308,16 @@ names(counts_table) <- gsub(" counts", "", names(counts_table), fixed=TRUE)
 plot_boxreg <- ggplot(data = melt(counts_table), aes(x=variable, y=value)) + 
   geom_boxplot(aes(fill=variable)) + 
   labs(title = "Distribution of cluster sizes", y = "Cluster sizes", x = "Clustering program & category", 
-       fill = "Clustering Program & \nPercent Identity") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 14), 
+       fill = "Clustering Program & \nCategory") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
         text = element_text(size = 18))
 
 # log scale
 plot_boxlog <- ggplot(data = melt(counts_table), aes(x=variable, y=value)) + 
   geom_boxplot(aes(fill=variable)) + 
   labs(title = "Distribution of cluster sizes", y = "Cluster sizes (log10)", x = "Clustering program & category", 
-       fill = "Clustering Program & \nPercent Identity") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 14), 
+       fill = "Clustering Program & \nCategory") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
         text = element_text(size = 18)) +
   scale_y_continuous(trans='log10')
 
@@ -326,16 +326,16 @@ plot_boxlog <- ggplot(data = melt(counts_table), aes(x=variable, y=value)) +
 plot_violinreg <- ggplot(data = melt(counts_table), aes(x=variable, y=value)) + 
   geom_violin(aes(fill=variable)) + 
   labs(title = "Distribution of cluster sizes", y = "Cluster sizes", x = "Clustering program & category", 
-       fill = "Clustering Program & \nPercent Identity") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 14), 
+       fill = "Clustering Program & \nCategory") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
         text = element_text(size = 18))
 
 # log scale
 plot_violinlog <- ggplot(data = melt(counts_table), aes(x=variable, y=value)) + 
   geom_violin(aes(fill=variable)) + 
   labs(title = "Distribution of cluster sizes", y = "Cluster sizes (log10)", x = "Clustering program & category", 
-       fill = "Clustering Program & \nPercent Identity") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 14), 
+       fill = "Clustering Program & \nCategory") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
         text = element_text(size = 18)) +
   scale_y_continuous(trans='log10')
 
