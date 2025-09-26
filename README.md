@@ -75,9 +75,11 @@ python og_membership_test.py [-h] (-a | -c CHECKPOINT_NUM) [-j INPUT_JSON] [-i T
 # please see -h for full prgoram documentation
 
 # visualizing cluster membership overlap
-Rscript visualize_cluster_overlap.R infile_json out_base
+Rscript visualize_cluster_overlap.R infile_json out_base dataset_id
 # infile_json is the og_score_dict_[IDENTIFIER].json file produced by the og_membership_test.py script
 # out_base is the intended basename for the output file heatmap plot files
+# dataset_id is a dataset identifier to be used in the figure titles 
+# (underscores should be used where the user wishes for spaces)
 
 ```
 

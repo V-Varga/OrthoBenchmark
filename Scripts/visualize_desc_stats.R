@@ -92,7 +92,7 @@ infile_name_counts <- basename(infile_counts)
 # set the working directory to where the input file is located
 setwd(dirname(infile_stats))
 # clean up the dataset ID
-clean_dataset_id <- sub("_", " ", dataset_id)
+clean_dataset_id <- gsub("_", " ", dataset_id)
 
 # determine the output file name based on the input file name
 outfile_basename <- paste((str_split(infile_name, "__")[[1]][1]), "Visualized", sep = "__")

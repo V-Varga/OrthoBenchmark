@@ -41,12 +41,15 @@
 # Usage: 
 #   Run this script from the command line in the directory containing the input files, 
 #     like so: 
-#       Rscript visualize_cluster_overlap.R infile_json out_base
+#       Rscript visualize_cluster_overlap.R infile_json out_base dataset_id
 #
 #       Where: 
 #         infile_json is the og_score_dict.json file produced by the og_membership_test.py script
 #         and
 #         out_base is the intended basename for the output file heatmap plot files
+#         and
+#         dataset_id is a dataset identifier to be used in the figure titles 
+#           (underscores should be used where the user wishes for spaces)
 # 
 # This script was written for R version 4.4.1 (2024-06-14 ucrt), in RStudio RStudio 2024.12.0+467 
 #   "Kousa Dogwood".
@@ -79,10 +82,14 @@ args <- commandArgs(trailingOnly = TRUE)
 infile_json <- args[1]
 # set the basename of the output file
 out_base <- args[2]
+# get a category name to add to figure titles
+dataset_id <- args[3]
 
 
 # set the working directory to where the input file is located
 setwd(dirname(infile_json))
+# clean up the dataset ID
+clean_dataset_id <- gsub("_", " ", dataset_id)
 
 # determine the output file name based on the user-provided basename
 outfile_basename <- paste(out_base, "Visualized", sep = "__")
@@ -156,7 +163,7 @@ for(i in 1:nrow(comparison_df)) {
 plot_heatmap <- ggplot(comparison_df, aes(x = Prog_1, y = Prog_2, fill = Overlap)) +
   geom_raster() +
   labs(
-    title = "Cluster Membership Overlap",
+    title = paste("Cluster Membership Overlap - ", clean_dataset_id, sep=""),
     subtitle = "Average percent of overlapping protein members of orthologous clusters \npredicted by different programs",
     y = NULL, x = NULL
   ) +
