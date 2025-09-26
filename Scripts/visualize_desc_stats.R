@@ -307,36 +307,40 @@ names(counts_table) <- gsub(" counts", "", names(counts_table), fixed=TRUE)
 # regular scale
 plot_boxreg <- ggplot(data = melt(counts_table), aes(x=variable, y=value)) + 
   geom_boxplot(aes(fill=variable)) + 
-  labs(title = "Distribution of cluster sizes", y = "Cluster sizes", x = "Clustering program & category", 
+  labs(title = paste("Distribution of cluster sizes - ", clean_dataset_id, sep=""), 
+       y = "Cluster sizes", x = "Clustering program & category", 
        fill = "Clustering Program & \nCategory") +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
-        text = element_text(size = 18))
+        text = element_text(size = 18), plot.margin = margin(10, 20, 10, 40))
 
 # log scale
 plot_boxlog <- ggplot(data = melt(counts_table), aes(x=variable, y=value)) + 
   geom_boxplot(aes(fill=variable)) + 
-  labs(title = "Distribution of cluster sizes", y = "Cluster sizes (log10)", x = "Clustering program & category", 
+  labs(title = paste("Distribution of cluster sizes - ", clean_dataset_id, sep=""), 
+       y = "Cluster sizes (log10)", x = "Clustering program & category", 
        fill = "Clustering Program & \nCategory") +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
-        text = element_text(size = 18)) +
+        text = element_text(size = 18), plot.margin = margin(10, 20, 10, 40)) +
   scale_y_continuous(trans='log10')
 
 # violin plot
 # regular scale
 plot_violinreg <- ggplot(data = melt(counts_table), aes(x=variable, y=value)) + 
   geom_violin(aes(fill=variable)) + 
-  labs(title = "Distribution of cluster sizes", y = "Cluster sizes", x = "Clustering program & category", 
+  labs(title = paste("Distribution of cluster sizes - ", clean_dataset_id, sep=""), 
+       y = "Cluster sizes", x = "Clustering program & category", 
        fill = "Clustering Program & \nCategory") +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
-        text = element_text(size = 18))
+        text = element_text(size = 18), plot.margin = margin(10, 20, 10, 40))
 
 # log scale
 plot_violinlog <- ggplot(data = melt(counts_table), aes(x=variable, y=value)) + 
   geom_violin(aes(fill=variable)) + 
-  labs(title = "Distribution of cluster sizes", y = "Cluster sizes (log10)", x = "Clustering program & category", 
+  labs(title = paste("Distribution of cluster sizes - ", clean_dataset_id, sep=""), 
+       y = "Cluster sizes (log10)", x = "Clustering program & category", 
        fill = "Clustering Program & \nCategory") +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 18), 
-        text = element_text(size = 18)) +
+        text = element_text(size = 18), plot.margin = margin(10, 20, 10, 40)) +
   scale_y_continuous(trans='log10')
 
 
